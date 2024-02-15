@@ -20,6 +20,8 @@ jobs:
         run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: npx playwright test
+        env:
+          CI: true
       - name: display files generated
         run: ls -R
       - uses: actions/upload-artifact@v3
