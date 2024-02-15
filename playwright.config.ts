@@ -11,7 +11,7 @@ const config: PlaywrightTestConfig = {
     forbidOnly: !!process.env.CI,
     retries: process.env.CI ? 1 : 0,
     workers: process.env.CI ? 2 : 1,
-    reporter: process.env.CI ? [['github'], ['html']] : 'html',
+    reporter: process.env.CI ? [['github'], ['blob']] : 'html',
     maxFailures: undefined,
     use: {
         headless: true,
