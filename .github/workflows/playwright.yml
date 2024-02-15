@@ -4,6 +4,7 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+
 env:
   TEST_DIR: ./tests
   RESULTS_DIR: ./tests/test-results
@@ -23,9 +24,12 @@ jobs:
         shardTotal: [ 2 ]
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: '18.x'
+          cache: 'yarn'
+          cache-dependency-path: ${{ env.TEST_DIR }}/yarn.lock
+
       - name: Install dependencies
         run: npm ci
       - name: Install Playwright Browsers
