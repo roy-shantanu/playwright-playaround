@@ -22,7 +22,7 @@ export default defineConfig({
     reporter: process.env.CI ? 'github' : 'html',
     maxFailures: undefined,
     use: {
-        headless: false,
+        headless: true,
         actionTimeout: 10000,
         navigationTimeout: 30000,
         trace: 'retain-on-failure',
