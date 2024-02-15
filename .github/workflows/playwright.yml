@@ -78,4 +78,4 @@ jobs:
     steps:
       - uses: geekyeggo/delete-artifact@v4
         with:
-            name: blob-report*
+            name: blob-report-1
