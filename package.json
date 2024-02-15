@@ -12,5 +12,6 @@
   "devDependencies": {
     "@playwright/test": "^1.41.2",
     "@types/node": "^20.11.17"
-  }
+  },
+  "packageManager": "yarn@4.0.2"
 }
