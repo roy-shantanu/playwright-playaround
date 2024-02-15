@@ -4,6 +4,12 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+env:
+  TEST_DIR: ./tests
+  RESULTS_DIR: ./tests/test-results
+
+concurrency:
+  group: e2e-tests
 
 jobs:
   playwright-tests:
