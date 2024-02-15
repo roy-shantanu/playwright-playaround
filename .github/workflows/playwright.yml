@@ -27,8 +27,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '18.x'
-          cache: 'yarn'
-          cache-dependency-path: ${{ env.TEST_DIR }}/yarn.lock
 
       - name: Install dependencies
         working-directory: ${{ env.TEST_DIR }}
