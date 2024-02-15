@@ -1,15 +1,7 @@
-import {defineConfig, devices} from '@playwright/test';
+import type {PlaywrightTestConfig} from '@playwright/test'
+import {devices} from '@playwright/test';
 
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// require('dotenv').config();
-
-/**
- * See https://playwright.dev/docs/test-configuration.
- */
-export default defineConfig({
+const config: PlaywrightTestConfig = {
     testDir: '.',
     timeout: 60000,
     expect: {
@@ -25,7 +17,7 @@ export default defineConfig({
         headless: true,
         actionTimeout: 10000,
         navigationTimeout: 30000,
-        trace: 'on',
+        trace: 'retain-on-failure',
         video: 'off',
         testIdAttribute: 'data-test-id',
     },
@@ -36,5 +28,7 @@ export default defineConfig({
             use: {...devices['Desktop Chrome']},
         },
     ],
+}
 
-});
+export default config
+
