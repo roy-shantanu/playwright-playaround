@@ -18,5 +18,10 @@ test.describe('Playwright homepage tests', () => {
         await expect(page.getByRole('heading', {name: 'Installation'})).toBeVisible();
     });
 
+    test('this will fail', async ({page}) => {
+
+        expect(true).toBe(false);
+    });
+
 
 })
