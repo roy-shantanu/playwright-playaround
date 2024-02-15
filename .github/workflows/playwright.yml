@@ -70,3 +70,12 @@ jobs:
           name: html-report--attempt-${{ github.run_attempt }}
           path: playwright-report
           retention-days: 14
+
+  delete-artifact:
+    if: always()
+    needs: [ merge-reports ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: geekyeggo/delete-artifact@v4
+        with:
+            name: blob-report*
