@@ -31,12 +31,25 @@ jobs:
           cache-dependency-path: ${{ env.TEST_DIR }}/yarn.lock
 
       - name: Install dependencies
-        run: npm ci
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+        working-directory: ${{ env.TEST_DIR }}
+        run: yarn install
+
+      - name: Cache playwright binaries
+        uses: actions/cache@v4
+        id: playwright-chromium-cache
+        with:
+          path: |
+            ~/.cache/ms-playwright
+          key: cache-playwright-chromium
+
+      - name: Install Playwright
+        if: steps.playwright-chromium-cache.outputs.cache-hit != 'true'
+        working-directory: ${{ env.TEST_DIR }}
+        run: npx playwright install --with-deps chromium
 
       - name: Run Playwright tests
-        run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+        working-directory: ${{ env.TEST_DIR }}
+        run: yarn test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
         env:
           CI: true
 
