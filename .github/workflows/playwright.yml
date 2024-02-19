@@ -101,7 +101,7 @@ jobs:
 
   publish_report:
     name: Publish HTML Report
-    if: "success() || needs.test.result == 'failure'"
+    if: "success() || needs.playwright-tests.result == 'failure'"
     needs: [ merge-reports ]
     runs-on: ubuntu-latest
     continue-on-error: true
