@@ -121,7 +121,7 @@ jobs:
       - name: Download zipped HTML report
         uses: actions/download-artifact@v4
         with:
-          name: html-report--attempt-1
+          pattern: html-report--attempt-*
           path: ${{ env.HTML_REPORT_URL_PATH }}
 
       - name: Push HTML Report
