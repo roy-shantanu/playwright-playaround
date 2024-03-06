@@ -51,9 +51,10 @@ jobs:
 
       - name: Run Playwright tests
         working-directory: ${{ env.TEST_DIR }}
-        run: yarn test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+        run: SHARD_INDEX=${{ matrix.shardIndex }} yarn test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
         env:
           CI: true
+          SHARD_TOTAL: ${ matrix.shardTotal }
 
       - name: display files generated
         run: ls -R
