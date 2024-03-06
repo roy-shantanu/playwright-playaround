@@ -16,7 +16,8 @@ test.describe('Playwright homepage tests', () => {
         await page.goto('https://playwright.dev/');
         // Expect a title "to contain" a substring.
 
-        console.log('shard config', testInfo.config.shard)
+        console.log('shard config current', testInfo.config.shard?.current)
+        console.log('shard config total', testInfo.config.shard?.total)
 
         await expect(page).toHaveTitle(/Playwright/);
 
@@ -34,7 +35,8 @@ test.describe('Playwright homepage tests', () => {
         // Click the get started link.
         await page.getByRole('link', { name: 'Get started' }).click();
 
-        console.log('shard config', testInfo.config.shard)
+        console.log('shard config current', testInfo.config.shard?.current)
+        console.log('shard config total', testInfo.config.shard?.total)
 
 
         // Expects page to have a heading with the name of Installation.
@@ -47,7 +49,8 @@ test.describe('Playwright homepage tests', () => {
             ', Test name: ', testInfo.title,
             ', Shard Index : ', process.env.SHARD_INDEX)
 
-        console.log('shard config', testInfo.config.shard)
+        console.log('shard config current', testInfo.config.shard?.current)
+        console.log('shard config total', testInfo.config.shard?.total)
 
 
         expect(true).toBe(false);
@@ -59,7 +62,8 @@ test.describe('Playwright homepage tests', () => {
             ', Test name: ', testInfo.title,
             ', Shard Index : ', process.env.SHARD_INDEX)
 
-        console.log('shard config', testInfo.config.shard)
+        console.log('shard config current', testInfo.config.shard?.current)
+        console.log('shard config total', testInfo.config.shard?.total)
 
 
         expect(true).toBe(true);
