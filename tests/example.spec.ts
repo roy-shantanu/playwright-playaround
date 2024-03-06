@@ -1,4 +1,4 @@
-import {expect, test} from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test.describe('Playwright homepage tests', () => {
 
@@ -7,7 +7,7 @@ test.describe('Playwright homepage tests', () => {
     })
 
 
-    test('has title', async ({page}, testInfo) => {
+    test('has title', async ({ page }, testInfo) => {
         console.log('Shard Total: ', process.env.SHARD_TOTAL,
             ', ParallelIndex: ', testInfo.parallelIndex,
             ', Test name: ', testInfo.title,
@@ -16,11 +16,13 @@ test.describe('Playwright homepage tests', () => {
         await page.goto('https://playwright.dev/');
         // Expect a title "to contain" a substring.
 
+        console.log('shard config', testInfo.config.shard)
+
         await expect(page).toHaveTitle(/Playwright/);
 
     });
 
-    test('get started link', async ({page}, testInfo) => {
+    test('get started link', async ({ page }, testInfo) => {
 
         console.log('Shard Total: ', process.env.SHARD_TOTAL,
             ', ParallelIndex: ', testInfo.parallelIndex,
@@ -30,26 +32,35 @@ test.describe('Playwright homepage tests', () => {
         await page.goto('https://playwright.dev/');
 
         // Click the get started link.
-        await page.getByRole('link', {name: 'Get started'}).click();
+        await page.getByRole('link', { name: 'Get started' }).click();
+
+        console.log('shard config', testInfo.config.shard)
+
 
         // Expects page to have a heading with the name of Installation.
-        await expect(page.getByRole('heading', {name: 'Installation'})).toBeVisible();
+        await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
     });
 
-    test('this will fail', async ({page}, testInfo) => {
+    test('this will fail', async ({ page }, testInfo) => {
         console.log('Shard Total: ', process.env.SHARD_TOTAL,
             ', ParallelIndex: ', testInfo.parallelIndex,
             ', Test name: ', testInfo.title,
             ', Shard Index : ', process.env.SHARD_INDEX)
+
+        console.log('shard config', testInfo.config.shard)
+
 
         expect(true).toBe(false);
     });
 
-    test('Another Test', async ({page}, testInfo) => {
+    test('Another Test', async ({ page }, testInfo) => {
         console.log('Shard Total: ', process.env.SHARD_TOTAL,
             ', ParallelIndex: ', testInfo.parallelIndex,
             ', Test name: ', testInfo.title,
             ', Shard Index : ', process.env.SHARD_INDEX)
+
+        console.log('shard config', testInfo.config.shard)
+
 
         expect(true).toBe(true);
     });
