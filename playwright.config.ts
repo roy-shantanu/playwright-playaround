@@ -17,7 +17,7 @@ const config: PlaywrightTestConfig = {
         headless: true,
         actionTimeout: 10000,
         navigationTimeout: 30000,
-        trace: 'retain-on-failure',
+        trace: 'on',
         video: 'off',
         testIdAttribute: 'data-test-id',
     },
