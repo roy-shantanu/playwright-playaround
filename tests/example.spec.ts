@@ -43,7 +43,7 @@ test.describe('Playwright homepage tests', () => {
         await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
     });
 
-    test('this will fail', async ({ page }, testInfo) => {
+    test('this will fail ', async ({ page }, testInfo) => {
         console.log('Shard Total: ', process.env.SHARD_TOTAL,
             ', ParallelIndex: ', testInfo.parallelIndex,
             ', Test name: ', testInfo.title,
