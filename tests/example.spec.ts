@@ -8,16 +8,19 @@ test.describe('Playwright homepage tests', () => {
 
 
     test('has title', async ({ page }, testInfo) => {
-        console.log('Shard Total: ', process.env.SHARD_TOTAL,
+        console.log(
+            // 'Shard Total: ', process.env.SHARD_TOTAL,
             ', ParallelIndex: ', testInfo.parallelIndex,
             ', Test name: ', testInfo.title,
-            ', Shard Index : ', process.env.SHARD_INDEX)
+            // ', Shard Index : ', process.config
+        )
+
+        console.log('shard config current', testInfo.config.shard?.current)
+        console.log('shard config total', testInfo.config.shard?.total)
 
         await page.goto('https://playwright.dev/');
         // Expect a title "to contain" a substring.
 
-        console.log('shard config current', testInfo.config.shard?.current)
-        console.log('shard config total', testInfo.config.shard?.total)
 
         await expect(page).toHaveTitle(/Playwright/);
 
@@ -25,18 +28,20 @@ test.describe('Playwright homepage tests', () => {
 
     test('get started link', async ({ page }, testInfo) => {
 
-        console.log('Shard Total: ', process.env.SHARD_TOTAL,
+        console.log(
+            // 'Shard Total: ', process.env.SHARD_TOTAL,
             ', ParallelIndex: ', testInfo.parallelIndex,
             ', Test name: ', testInfo.title,
-            ', Shard Index : ', process.env.SHARD_INDEX)
+            // ', Shard Index : ', process.config
+        )
+
+        console.log('shard config current', testInfo.config.shard?.current)
+        console.log('shard config total', testInfo.config.shard?.total)
 
         await page.goto('https://playwright.dev/');
 
         // Click the get started link.
         await page.getByRole('link', { name: 'Get started' }).click();
-
-        console.log('shard config current', testInfo.config.shard?.current)
-        console.log('shard config total', testInfo.config.shard?.total)
 
 
         // Expects page to have a heading with the name of Installation.
@@ -44,10 +49,12 @@ test.describe('Playwright homepage tests', () => {
     });
 
     test('this will fail', async ({ page }, testInfo) => {
-        console.log('Shard Total: ', process.env.SHARD_TOTAL,
+        console.log(
+            // 'Shard Total: ', process.env.SHARD_TOTAL,
             ', ParallelIndex: ', testInfo.parallelIndex,
             ', Test name: ', testInfo.title,
-            ', Shard Index : ', process.env.SHARD_INDEX)
+            // ', Shard Index : ', process.config
+        )
 
         console.log('shard config current', testInfo.config.shard?.current)
         console.log('shard config total', testInfo.config.shard?.total)
@@ -57,10 +64,12 @@ test.describe('Playwright homepage tests', () => {
     });
 
     test('Another Test', async ({ page }, testInfo) => {
-        console.log('Shard Total: ', process.env.SHARD_TOTAL,
+        console.log(
+            // 'Shard Total: ', process.env.SHARD_TOTAL,
             ', ParallelIndex: ', testInfo.parallelIndex,
             ', Test name: ', testInfo.title,
-            ', Shard Index : ', process.env.SHARD_INDEX)
+            // ', Shard Index : ', process.config
+        )
 
         console.log('shard config current', testInfo.config.shard?.current)
         console.log('shard config total', testInfo.config.shard?.total)
