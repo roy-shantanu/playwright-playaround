@@ -51,7 +51,8 @@ jobs:
 
       - name: Run Playwright tests
         working-directory: ${{ env.TEST_DIR }}
-        run: yarn test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+        run: yarn test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} |
+          echo TESTSECRET
         env:
           CI: true
           SHARD_TOTAL: ${{ matrix.shardTotal }}
