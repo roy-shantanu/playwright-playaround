@@ -55,6 +55,7 @@ jobs:
         env:
           CI: true
           SHARD_TOTAL: ${{ matrix.shardTotal }}
+          TESTSECRET: ${{ secrets.TESTSECRET }}
 
       - name: display files generated
         run: ls -R
