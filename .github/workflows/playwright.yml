@@ -57,8 +57,8 @@ jobs:
           SHARD_TOTAL: ${{ matrix.shardTotal }}
           TESTSECRET: ${{ secrets.TESTSECRET }}
 
-      - name: display files generated
-        run: ls -R
+      # - name: display files generated
+      #   run: ls -R
 
       - name: Upload blob report to GitHub Actions Artifacts
         if: always()
