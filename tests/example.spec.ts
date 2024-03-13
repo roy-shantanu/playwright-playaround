@@ -48,6 +48,12 @@ test.describe('Playwright homepage tests', () => {
 
         console.log(testConfig.credentials)
 
+    }); 
+    
+    test.only('testing secret 2', async ({ page, unregisteredFbUsers }, testInfo) => {
+
+        console.log(testConfig.credentials)
+
     });
 
 })
