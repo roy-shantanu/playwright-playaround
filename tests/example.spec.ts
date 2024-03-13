@@ -46,14 +46,14 @@ test.describe('Playwright homepage tests', () => {
 
     test.only('testing secret', async ({ page, unregisteredFbUsers }, testInfo) => {
         console.log(testConfig.credentials)
-        console.log(testConfig.credentials[0].email)
-        console.log(testConfig.credentials[0].password)
+        // console.log(testConfig.credentials[0].email)
+        // console.log(testConfig.credentials[0].password)
     }); 
     
     test.only('testing secret 2', async ({ page, unregisteredFbUsers }, testInfo) => {
         console.log(testConfig.credentials)
-        console.log(testConfig.credentials[1].email)
-        console.log(testConfig.credentials[1].password)
+        // console.log(testConfig.credentials[1].email)
+        // console.log(testConfig.credentials[1].password)
 
     });
 
